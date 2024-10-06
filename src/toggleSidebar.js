@@ -1,6 +1,5 @@
 import { getElement } from "./utils.js";
 
-// select element
 const toggleNav = getElement(".toggle-nav");
 const sidebarOverlay = getElement(".sidebar-overlay");
 const closeBtn = getElement(".sidebar-close");

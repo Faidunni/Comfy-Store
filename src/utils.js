@@ -7,7 +7,7 @@ const allProductsUrl = "https://www.course-api.com/javascript-store-products";
 // temporary single product
 // 'https://www.course-api.com/javascript-store-single-product?id=rec43w3ipXvP28vog'
 const singleProductUrl =
-  "https://www.course-api.com/javascript-store-single-product?id=rec43w3ipXvP28vog";
+  "https://www.course-api.com/javascript-store-single-product";
 
 const getElement = (selection) => {
   const element = document.querySelector(selection);
@@ -17,7 +17,6 @@ const getElement = (selection) => {
   );
 };
 
-// format price
 const formatPrice = (price) => {
   let formattedPrice = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -26,7 +25,6 @@ const formatPrice = (price) => {
   return formattedPrice;
 };
 
-// get products
 const getStorageItem = (item) => {
   let storageItem = localStorage.getItem(item);
   if (storageItem) {
@@ -37,7 +35,6 @@ const getStorageItem = (item) => {
   return storageItem;
 };
 
-// display product
 const setStorageItem = (name, item) => {
   localStorage.setItem(name, JSON.stringify(item));
 };
