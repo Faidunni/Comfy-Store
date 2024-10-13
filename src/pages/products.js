@@ -12,11 +12,21 @@ import setupPrice from "../filters/price.js";
 import { store, setupStore } from "../store.js";
 import display from "../displayProducts.js";
 import { getElement } from "../utils.js";
+// import fetch products
+import fetchProducts from "../fetchProducts.js";
 
-const loading = getElement(".page-loading");
+const init = async () => {
+  const loading = getElement(".page-loading");
+  if (store.length < 1) {
+    const products = await fetchProducts();
+    setupStore(products);
+  }
+  display(store, getElement(".products-container"));
 
-display(store, getElement(".products-container"));
+  setupSearch(store);
+  setupCompanies(store);
+  setupPrice(store);
+  loading.style.display = "none";
+};
 
-setupSearch(store);
-
-loading.style.display = "none";
+init();
